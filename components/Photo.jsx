@@ -20,7 +20,7 @@ const Photo = () => {
           opacity:1,
           transition:{delay:2.4, duration:0.4, ease:"easeInOut"},
          }}
-        className='w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute'>
+        className='w-[250px] h-[250px] xl:w-[350px] xl:h-[350px] mix-blend-lighten absolute'>
           <Image
             src='/Assests/myphoto.png'
             priority
@@ -32,7 +32,7 @@ const Photo = () => {
 
         {/*circle*/}
         <motion.svg
-        className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
+        className="w-[200px] xl:w-[350px] h-[200px] xl:h-[350px]"
         viewBox="0 0 506 506"
         fill="transparent"
         xmlns="http://www.w3.org/2000/svg">

@@ -8,13 +8,25 @@ const services =[
     num: "01",
     title: "Web Development",
     description:"Passionate web developer with expertise in HTML, CSS, and JavaScript, skilled in creating responsive, user-friendly websites and web applications using modern frameworks and libraries. Dedicated to delivering high-quality, innovative solutions.",
-    href:""
+    href:"/contact"
   },
   {
     num: "02",
     title: "UI/UX Design",
     description:"Creative UI/UX designer with a keen eye for detail and a user-centered approach. Specializes in crafting intuitive, visually appealing interfaces and enhancing user experiences through thoughtful design and research.",
-    href:""
+    href:"/contact"
+  },
+  {
+    num: "03",
+    title: "Mobile Development",
+    description:"Contributed and experienced in Expo React Native, demonstrating proficiency in mobile application development, debugging, testing, and deployment, with a strong focus on user experience and performance optimization.",
+    href:"/contact"
+  },
+  {
+    num: "04",
+    title: "Software Application Development",
+    description:"Contributed and experienced in multiple technologies, demonstrating strong skills in software development, backend services, and robust application design",
+    href:"/contact"
   },
 ];
 
@@ -45,12 +57,12 @@ const Services= () => {
                   <div className='text-4xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500'>{service.num}</div>
                   <Link href={service.href}
                   className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45">
-                    <BsArrowDownRight className="text-primary text-3xl"/>
+                    <BsArrowDownRight className="text-primary text-2xl"/>
                   </Link>
                 </div>
                 
                 {/*title*/}
-                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{service.title}</h2>
+                <h2 className="text-[30px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{service.title}</h2>
                 
                 {/*description*/}
                 <p className='text-white/60'>{service.description}</p>

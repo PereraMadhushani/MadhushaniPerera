@@ -13,7 +13,7 @@ const Home = () => {
             {/*text */}
             <div className="text-center xl:text-left order-2 xl:order-none">
               <span>Full Stack Developer</span>
-              <h1 className="h1 mb-6 text-[50px] ">
+              <h1 className="h1 mb-6 text-[40px] ">
                 Hello I&apos;m <br/> <span className="text-accent ">Kaushalya Madhushani Perera</span>
               </h1>
               <p className="max-w-[500px] mb-9 text-white/100">
@@ -22,15 +22,11 @@ const Home = () => {
               {/*button and socials*/}
               <div className="flex flex-col xl:flex-row items-center  gap-8">
                 <a href="/Assests/G K M Perera-Software Engineer.pdf" download target="_blank" rel="noopener noreferrer">
-  <Button
-    variant="outline"
-    size="lg"
-    className="uppercase flex items-center gap-2 mb-0"
-  >
-    <span>Download CV</span>
-    <FiDownload className="text-xl" />
-  </Button>
-</a>
+                    <Button variant="outline" size="lg" className="uppercase flex items-center gap-2 mb-0">
+                          <span>Download CV</span>
+                          <FiDownload className="text-xl" />
+                    </Button>
+                </a>
 
                 <div className="mb-8 xl:mb-0">
                   <Socials
@@ -42,12 +38,13 @@ const Home = () => {
             </div>
 
             {/*photo*/}
-            <div className="order-1 xl:order-none mb-8 xl:mb-0">
+            <div className="order-1 xl:order-none mb-0 xl:mb-0">
               <Photo/>
-            </div>
+            </div>    
           </div>
+          {/*stats*/}
+          <Stats/>
         </div>
-        <Stats/>
     </section>
   );
 };
