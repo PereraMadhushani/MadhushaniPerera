@@ -3,27 +3,35 @@
 import Link from "next/link";
 import  {usePathname} from "next/navigation";
 
+// const links = [
+//     {
+//         name: "home",
+//         path: "/",
+//     },
+//     {
+//         name: "services",
+//         path: "/services",
+//     },
+//     {
+//         name: "resume",
+//         path: "/resume",
+//     },
+//     {
+//         name: "work",
+//         path: "/work",
+//     },
+//     {
+//         name: "contact",
+//         path: "/contact",
+//     },
+// ];
+
 const links = [
-    {
-        name: "home",
-        path: "/",
-    },
-    {
-        name: "services",
-        path: "/services",
-    },
-    {
-        name: "resume",
-        path: "/resume",
-    },
-    {
-        name: "work",
-        path: "/work",
-    },
-    {
-        name: "contact",
-        path: "/contact",
-    },
+  { name: "home", path: "/", type: "scroll" },
+  { name: "services", path: "services", type: "scroll" },
+  { name: "work", path: "work", type: "scroll" },
+  { name: "resume", path: "/resume", type: "route" },
+  { name: "contact", path: "/contact", type: "route" },
 ];
 
 const Nav = () => {
