@@ -2,9 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── @property (must be at top level, outside @layer) ─────────────────────── */
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+/* ─── Keyframes (top level for broadest browser support) ───────────────────── */
+@keyframes gridDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 60px 60px; }
+}
+
+@keyframes beamSpin {
+  to { --beam-angle: 360deg; }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
 @layer base {
   body {
    @apply font-primary bg-primary text-white leading-loose;
+  }
+
+  /* ─── Typewriter ────────────────────────────────────────────────────────── */
+  .typewriter-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    min-height: 1.5em;
+    margin-bottom: 0.35rem;
+  }
+
+  .typewriter-text {
+    background: linear-gradient(90deg, #00ff99 0%, #a8ffe0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .typewriter-cursor {
+    color: #00ff99;
+    font-weight: 300;
+    animation: blink 0.85s step-start infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0; }
+  }
+
+  /* ─── Custom cursor — hide native on pointer:fine devices ─────────────── */
+  body.custom-cursor-active,
+  body.custom-cursor-active a,
+  body.custom-cursor-active button,
+  body.custom-cursor-active [role="button"],
+  body.custom-cursor-active input,
+  body.custom-cursor-active textarea,
+  body.custom-cursor-active select,
+  body.custom-cursor-active label {
+    cursor: none !important;
   }
   .h1{
     @apply text-[48px] xl:text-[80px] leading-[1.1] font-semibold;
@@ -29,6 +94,161 @@
 }
 
 @layer components {
+  /* ─── Hero Section ──────────────────────────────────────────────────────── */
+
+  .hero-section {
+    position: relative;
+  }
+
+  /* Animated dot-grid background */
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      linear-gradient(rgba(0, 255, 153, 0.042) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 255, 153, 0.042) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: gridDrift 18s linear infinite;
+  }
+
+  /* Corner glow blobs + centre vignette */
+  .hero-grid::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 42% 32% at 0% 0%,   rgba(0, 255, 153, 0.055) 0%, transparent 100%),
+      radial-gradient(ellipse 32% 28% at 100% 100%, rgba(0, 255, 153, 0.04)  0%, transparent 100%),
+      radial-gradient(ellipse 55% 55% at 50% 50%,  transparent 40%, rgba(28, 28, 34, 0.65) 100%);
+  }
+
+  /* ─── Name gradient ──────────────────────────────────────────────────────── */
+  .hero-name-gradient {
+    background: linear-gradient(108deg, #ffffff 25%, #00ff99 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    /* fallback for browsers that don't support bg-clip: text */
+    color: #00ff99;
+  }
+
+  /* ─── Border-beam CTA button ─────────────────────────────────────────────── */
+  .hero-cta-beam {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00ff99;
+    background: transparent;
+    border: none;
+    outline: none;
+    isolation: isolate;
+    transition: color 0.3s ease;
+  }
+
+  /* Rotating beam layer (extends 2 px outside to form the 'border ring') */
+  .hero-cta-beam::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 9999px;
+    background: conic-gradient(
+      from var(--beam-angle),
+      rgba(0, 255, 153, 0.12) 0deg,
+      rgba(0, 255, 153, 0.12) 290deg,
+      rgba(0, 255, 153, 0.85) 335deg,
+      rgba(0, 255, 153, 0.35) 350deg,
+      rgba(0, 255, 153, 0.12) 360deg
+    );
+    animation: beamSpin 2.5s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Cover layer — shows only the outer ~3.5 px ring from ::before */
+  .hero-cta-beam::after {
+    content: '';
+    position: absolute;
+    inset: 1.5px;
+    border-radius: 9999px;
+    background: #1c1c22;
+    z-index: 1;
+    pointer-events: none;
+    transition: background 0.3s ease;
+  }
+
+  /* Content above both pseudo-layers */
+  .hero-cta-beam > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-cta-beam:hover::after {
+    background: rgba(0, 255, 153, 0.07);
+  }
+
+  .hero-cta-beam:hover {
+    color: #ffffff;
+  }
+
+  .hero-cta-beam:focus-visible {
+    outline: 2px solid #00ff99;
+    outline-offset: 4px;
+  }
+
+  /* ─── Custom Glowing Cursor ──────────────────────────────────────────────── */
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    border: 1.5px solid rgba(0, 255, 153, 0.55);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0;          /* revealed by JS only when pointer:fine */
+    will-change: transform;
+    transition:
+      width      0.22s ease,
+      height     0.22s ease,
+      border-color 0.22s ease,
+      box-shadow 0.22s ease,
+      background 0.22s ease;
+  }
+
+  .custom-cursor.cursor-expanded {
+    width: 60px;
+    height: 60px;
+    border-color: #00ff99;
+    background: rgba(0, 255, 153, 0.05);
+    box-shadow: 0 0 22px rgba(0, 255, 153, 0.35);
+  }
+
+  .custom-cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 5px;
+    background: #00ff99;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;          /* revealed by JS */
+    will-change: transform;
+    box-shadow: 0 0 7px rgba(0, 255, 153, 0.9);
+  }
+
   /* ─── Slider Navigation ─────────────────────────────────────────────────── */
 
   .slider-nav-row {

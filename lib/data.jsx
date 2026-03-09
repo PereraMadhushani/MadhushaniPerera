@@ -18,6 +18,9 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,
+  FaPhp,
+  FaVuejs,
+  FaLaravel,
 } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
 
@@ -183,7 +186,12 @@ export const experience = {
     {
       company: "Pra Su King Pvt Ltd.",
       position: "Intern Software Engineer",
-      duration: "2025 March – Present",
+      duration: "2025 March – 2025 September",
+    },
+    {
+      company: "Jaan Network (Pvt) Ltd.",
+      position: "Intern Full Stack Developer",
+      duration: "2025 October – Present",
     },
   ],
 };
@@ -194,6 +202,11 @@ export const education = {
   description:
     "Pursuing a Diploma in Information Technology at the Institute of Technology, University of Moratuwa, gaining comprehensive knowledge and hands-on experience in web development and full-stack engineering.",
   items: [
+    {
+      institution: "Wrexham University, UK",
+      diploma: "Computer Science (Top-up)",
+      duration: "2025 – 2026",
+    },
     {
       institution: "Institute of Technology, University of Moratuwa",
       diploma: "Information Technology",
@@ -223,6 +236,9 @@ export const skills = {
     { icon: <FaJava />, name: "Java" },
     { icon: <FaPython />, name: "Python" },
     { icon: <FaAngular />, name: "Angular" },
+    { icon: <FaPhp />, name: "PHP" },
+    { icon: <FaVuejs />, name: "Vue.js" },
+    { icon: <FaLaravel />, name: "Laravel" },
   ],
 };
 
