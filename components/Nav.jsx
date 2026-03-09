@@ -1,57 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import  {usePathname} from "next/navigation";
-
-// const links = [
-//     {
-//         name: "home",
-//         path: "/",
-//     },
-//     {
-//         name: "services",
-//         path: "/services",
-//     },
-//     {
-//         name: "resume",
-//         path: "/resume",
-//     },
-//     {
-//         name: "work",
-//         path: "/work",
-//     },
-//     {
-//         name: "contact",
-//         path: "/contact",
-//     },
-// ];
-
-const links = [
-  { name: "home", path: "/", type: "scroll" },
-  { name: "services", path: "services", type: "scroll" },
-  { name: "work", path: "work", type: "scroll" },
-  { name: "resume", path: "/resume", type: "route" },
-  { name: "contact", path: "/contact", type: "route" },
-];
+import { usePathname } from "next/navigation";
+import { navLinks } from "@/lib/data";
 
 const Nav = () => {
-    const pathname  = usePathname();
-    console.log(pathname);
+  const pathname = usePathname();
+
   return (
-    <nav className="flex gap-8">
-        {links.map((link, index)=>{
-            return (
-                <Link href={link.path} key = {index} className={`${link.path===pathname &&
-                    "text-accent border-b-2 border-accent"}
-                    capitalize font-medium hover:text-accent transition-all
-                `}>
-                    {link.name}
-                </Link>
-            );
-        })}
-      
+    <nav className="flex items-center gap-1">
+      {navLinks.map((link, index) => (
+        <Link
+          href={link.path}
+          key={index}
+          className={`
+            relative px-3 py-2 capitalize font-medium text-sm tracking-wide
+            transition-colors duration-300 rounded-md
+            after:content-[''] after:absolute after:bottom-0 after:left-3 after:right-3
+            after:h-[2px] after:bg-accent after:rounded-full
+            after:transition-all after:duration-300
+            ${
+              link.path === pathname
+                ? "text-accent after:opacity-100 after:scale-x-100 bg-accent/5"
+                : "text-white/70 hover:text-white after:opacity-0 after:scale-x-0 hover:after:opacity-100 hover:after:scale-x-100 hover:bg-white/5"
+            }
+          `}
+        >
+          {link.name}
+        </Link>
+      ))}
     </nav>
   );
 };
 
-export default Nav
+export default Nav;
+

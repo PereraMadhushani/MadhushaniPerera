@@ -1,83 +1,103 @@
 "use client";
 
-import {BsArrowDownRight} from 'react-icons/bs';
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { services } from "@/lib/data";
+import { Globe, Palette, Smartphone, Code2, ArrowUpRight } from "lucide-react";
 
-const services =[
-  {
-    num: "01",
-    title: "Web Development",
-    description:"Passionate web developer with expertise in HTML, CSS, and JavaScript, skilled in creating responsive, user-friendly websites and web applications using modern frameworks and libraries. Dedicated to delivering high-quality, innovative solutions.",
-    href:"/contact"
-  },
-  {
-    num: "02",
-    title: "UI/UX Design",
-    description:"Creative UI/UX designer with a keen eye for detail and a user-centered approach. Specializes in crafting intuitive, visually appealing interfaces and enhancing user experiences through thoughtful design and research.",
-    href:"/contact"
-  },
-  {
-    num: "03",
-    title: "Mobile Development",
-    description:"Contributed and experienced in Expo React Native, demonstrating proficiency in mobile application development, debugging, testing, and deployment, with a strong focus on user experience and performance optimization.",
-    href:"/contact"
-  },
-  {
-    num: "04",
-    title: "Software Application Development",
-    description:"Contributed and experienced in multiple technologies, demonstrating strong skills in software development, backend services, and robust application design",
-    href:"/contact"
-  },
-];
+const serviceIcons = {
+  "01": Globe,
+  "02": Palette,
+  "03": Smartphone,
+  "04": Code2,
+};
 
-import {motion} from "framer-motion";
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      delayChildren: 2.4,
+      staggerChildren: 0.15,
+    },
+  },
+};
 
-const Services= () => {
+const cardVariants = {
+  hidden: { opacity: 0, y: 32 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, ease: "easeOut" },
+  },
+};
+
+const Services = () => {
   return (
-      <section className='in-h-[80vh] flex flex-col justify-center py-12 xl:py-0'>
-        <div className='container mx-auto'>
-          <motion.div
-          initial={{opacity:0}}
+    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
+      <div className="container mx-auto">
+        {/* Section heading */}
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
           animate={{
-            opacity:1,
-            transition: {
-              delay:2.4,
-              duration:0.4,
-              ease:"easeIn"
-            }
+            opacity: 1,
+            y: 0,
+            transition: { delay: 2.2, duration: 0.5, ease: "easeOut" },
           }}
-          className='grid grid-cols-1 md:grid-cols-2 gap-[60px]'
-          >
-           {services.map((service, index) =>{
-            return(
-              <div key={index} className='flex-1 flex flex-col justify-center gap-5 group'>
-                
-                {/*top*/}
-                <div className='w-full flex justify-between items-center'>
-                  <div className='text-4xl font-extrabold text-outline text-transparent group-hover:text-outline-hover transition-all duration-500'>{service.num}</div>
-                  <Link href={service.href}
-                  className="w-[70px] h-[70px] rounded-full bg-white group-hover:bg-accent transition-all duration-500 flex justify-center items-center hover:-rotate-45">
-                    <BsArrowDownRight className="text-primary text-2xl"/>
+          className="text-center mb-12"
+        >
+          <h2 className="h2 mb-3">
+            What I <span className="text-accent">Offer</span>
+          </h2>
+          <p className="text-white/50 text-sm max-w-[440px] mx-auto leading-relaxed">
+            Crafting high-quality digital experiences across web, mobile, and
+            software platforms.
+          </p>
+        </motion.div>
+
+        {/* Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+        >
+          {services.map((service, index) => {
+            const Icon = serviceIcons[service.num] || Code2;
+            return (
+              <motion.div
+                key={index}
+                variants={cardVariants}
+                className="service-card group"
+              >
+                <div className="service-card-inner">
+                  {/* Icon */}
+                  <div className="service-icon-wrap">
+                    <Icon className="service-icon" />
+                  </div>
+
+                  {/* Number */}
+                  <span className="service-num">{service.num}</span>
+
+                  {/* Title */}
+                  <h3 className="service-title">{service.title}</h3>
+
+                  {/* Description */}
+                  <p className="service-description">{service.description}</p>
+
+                  {/* CTA Link */}
+                  <Link href={service.href} className="service-link">
+                    <span>Get in touch</span>
+                    <ArrowUpRight className="service-arrow" />
                   </Link>
                 </div>
-                
-                {/*title*/}
-                <h2 className="text-[30px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500">{service.title}</h2>
-                
-                {/*description*/}
-                <p className='text-white/60'>{service.description}</p>
-                
-                {/*border*/}
-                <div className='border-b border-white/20 w-full'></div>
-              </div>
-            )
-           })}
-
-          </motion.div>
-        </div>
-      </section>
-  )
-}
+              </motion.div>
+            );
+          })}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 export default Services;
 
