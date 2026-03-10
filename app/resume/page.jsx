@@ -18,7 +18,7 @@ const Resume = () => {
         opacity: 1,
         transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
       }}
-      className="py-12 xl:py-16"
+      className="py-4 xl:py-16"
     >
       <div className="container mx-auto">
         <Tabs

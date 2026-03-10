@@ -33,7 +33,7 @@ const cardVariants = {
 
 const Services = () => {
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
+    <section className="xl:min-h-[80vh] flex flex-col justify-center py-4 xl:py-0">
       <div className="container mx-auto">
         {/* Cards Grid */}
         <motion.div
