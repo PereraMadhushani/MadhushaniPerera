@@ -61,6 +61,11 @@ const Resume = () => {
                             <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                             {item.company}
                           </p>
+                          <p className="text-white/60 text-sm mt-1.5 flex items-center gap-2 justify-center xl:justify-start">
+                            <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                            {item.description}
+                          </p>
+
                         </div>
                       </li>
                     ))}
@@ -92,6 +97,9 @@ const Resume = () => {
                           <h4 className="text-white font-bold text-base mt-2 leading-snug text-left">
                             {item.diploma}
                           </h4>
+                          <h5 className="text-white font-bold text-base mt-2 leading-snug text-left">
+                            {item.description}
+                          </h5>
                           <p className="text-white/60 text-sm mt-1.5 flex items-center gap-2 justify-center xl:justify-start">
                             <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
                             {item.institution}

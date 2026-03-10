@@ -56,14 +56,26 @@ const HeroSection = () => (
     {/* Subtle dot-grid */}
     <div className="hero-grid" aria-hidden="true" />
 
-    <div className="flex flex-col xl:flex-row items-center justify-between py-16 xl:pt-12 xl:pb-24 w-full relative z-10 gap-10 xl:gap-0">
+    {/* Decorative glow effect */}
+    <div 
+      className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] 
+                   bg-gradient-to-r from-[#00ff99]/5 via-[#00ff99]/10 to-transparent 
+                   rounded-full blur-3xl pointer-events-none"
+      aria-hidden="true"
+    />
+
+    {/* Main hero container with constrained width and proper gap */}
+    <div className="flex flex-col xl:flex-row items-center justify-center 
+                    py-12 sm:py-16 xl:py-20 w-full max-w-6xl px-4 sm:px-6 lg:px-8 
+                    relative z-10 gap-8 sm:gap-10 lg:gap-14 xl:gap-16">
+      
       {/* ── Text side ─────────────────────────────────────────────── */}
-      <div className="text-center xl:text-left order-2 xl:order-none max-w-xl">
+      <div className="text-center xl:text-left order-2 xl:order-none max-w-2xl flex-shrink-0">
         {/* Typewriter role */}
         <TypewriterText />
 
         {/* Main heading */}
-        <h1 className="h1 mb-5">
+        <h1 className="h1 mb-6 lg:mb-8">
           <RevealText text="Hello I'm" delay={2.0} />
           <br />
           <motion.span
@@ -86,7 +98,7 @@ const HeroSection = () => (
 
         {/* Tagline */}
         <motion.p
-          className="max-w-[480px] mb-8 text-white/60 text-[15px] leading-relaxed"
+          className="max-w-[500px] mx-auto xl:mx-0 mb-8 lg:mb-10 text-white/60 text-sm sm:text-base leading-relaxed"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.6, duration: 0.5, ease: "easeOut" }}

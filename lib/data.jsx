@@ -62,7 +62,7 @@ export const socials = [
   },
   {
     icon: <FaLinkedinIn />,
-    path: "https://www.linkedin.com/in/kaushalya-perera-878b98258/",
+    path: "www.linkedin.com/in/kawshalya-perera-878b98258",
     label: "LinkedIn",
   },
 ];
@@ -208,18 +208,22 @@ export const education = {
   items: [
     {
       institution: "Wrexham University, UK",
-      diploma: "Computer Science (Top-up)",
+      diploma: "BSc (Hons) Computing",
       duration: "2025 – 2026",
+      description:"Focused on IT project management, mobile development, future technologies, and data analyticsGained hands-on experience through assignments and a capstone project"
     },
     {
       institution: "Institute of Technology, University of Moratuwa",
       diploma: "Information Technology",
       duration: "2022 – 2024",
+      description: "Specialized in web development, database management, and software engineering principles."
+
     },
     {
       institution: "Lanka Indian Institute",
       diploma: "Tamil Language",
       duration: "6 Months",
+      description: "Completed a comprehensive course in Tamil language and culture."
     },
   ],
 };

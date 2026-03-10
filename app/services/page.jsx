@@ -35,25 +35,6 @@ const Services = () => {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
       <div className="container mx-auto">
-        {/* Section heading */}
-        <motion.div
-          initial={{ opacity: 0, y: -12 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: { delay: 0.1, duration: 0.4, ease: "easeOut" },
-          }}
-          className="text-center mb-10"
-        >
-          <h2 className="h2 mb-3">
-            What I <span className="text-accent">Offer</span>
-          </h2>
-          <p className="text-white/60 text-sm max-w-[440px] mx-auto leading-relaxed">
-            Crafting high-quality digital experiences across web, mobile, and
-            software platforms.
-          </p>
-        </motion.div>
-
         {/* Cards Grid */}
         <motion.div
           variants={containerVariants}

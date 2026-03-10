@@ -36,8 +36,9 @@ const Home = () => {
         <Stats />
 
         {/* ── Services ──────────────────────────────────────────────────── */}
-        <section id="services">
-          <div data-aos="zoom-in">
+        <section id="services" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+          <SectionHeading title="Services" subtitle="What I Offer" />
+          <div data-aos="zoom-in" className="-mt-6 sm:-mt-8 lg:-mt-12">
             <Services />
           </div>
         </section>
@@ -45,7 +46,7 @@ const Home = () => {
         {/* ── Work ──────────────────────────────────────────────────────── */}
         <section id="work" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
           <SectionHeading title="Work" subtitle="My Recent Projects" />
-          <div data-aos="zoom-in">
+          <div data-aos="zoom-in" className="-mt-6 sm:-mt-8 lg:-mt-12">
             <Work />
           </div>
         </section>
@@ -67,9 +68,9 @@ const Home = () => {
         </section>
 
         {/* ── Contact ───────────────────────────────────────────────────── */}
-        <section id="contact" className="pt-24 pb-24 xl:pt-0 xl:pb-0">
+        <section id="contact" className="pt-32 pb-24 xl:pt-20 xl:pb-0">
           <SectionHeading title="Contact" subtitle="Get In Touch" />
-          <div data-aos="fade-up">
+          <div data-aos="fade-up" className="-mt-6 sm:-mt-8 lg:-mt-12">
             <Contact />
           </div>
         </section>
