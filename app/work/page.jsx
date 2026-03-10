@@ -37,7 +37,7 @@ const Work = () => {
         opacity: 1,
         transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
       }}
-      className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
+      className="xl:min-h-[80vh] flex flex-col justify-center py-4 xl:px-0"
     >
       <div className="container mx-auto">
         {/* Heading */}

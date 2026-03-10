@@ -5,7 +5,7 @@ import { stats } from "@/lib/data";
 
 const Stats = () => {
   return (
-    <section className="py-10 xl:py-12">
+    <section className="py-6 xl:py-12">
       <div className="container mx-auto">
         <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
           {stats.map((item, index) => (

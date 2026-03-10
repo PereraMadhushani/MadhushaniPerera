@@ -16,7 +16,7 @@ import Certifications from "@/components/Certifications";
 
 // Reusable section heading used across the single-page layout
 const SectionHeading = ({ title, subtitle }) => (
-  <div className="text-center mb-16 lg:mb-20" data-aos="fade-up">
+  <div className="text-center mb-8 sm:mb-10 lg:mb-16" data-aos="fade-up">
     <h2 className="text-3xl lg:text-4xl font-bold text-accent uppercase tracking-wide">
       {title}
     </h2>
@@ -36,7 +36,7 @@ const Home = () => {
         <Stats />
 
         {/* ── Services ──────────────────────────────────────────────────── */}
-        <section id="services" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+        <section id="services" className="pt-8 pb-12 xl:pt-0 xl:pb-0">
           <SectionHeading title="Services" subtitle="What I Offer" />
           <div data-aos="zoom-in" className="-mt-6 sm:-mt-8 lg:-mt-12">
             <Services />
@@ -44,7 +44,7 @@ const Home = () => {
         </section>
 
         {/* ── Work ──────────────────────────────────────────────────────── */}
-        <section id="work" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+        <section id="work" className="pt-8 pb-12 xl:pt-0 xl:pb-0">
           <SectionHeading title="Work" subtitle="My Recent Projects" />
           <div data-aos="zoom-in" className="-mt-6 sm:-mt-8 lg:-mt-12">
             <Work />
@@ -52,7 +52,7 @@ const Home = () => {
         </section>
 
         {/* ── Resume ────────────────────────────────────────────────────── */}
-        <section id="resume" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+        <section id="resume" className="pt-8 pb-12 xl:pt-0 xl:pb-0">
           <SectionHeading title="Resume" subtitle="My Experience & Education" />
           <div data-aos="zoom-in">
             <Resume />
@@ -60,7 +60,7 @@ const Home = () => {
         </section>
 
         {/* ── Certifications ────────────────────────────────────────────── */}
-        <section id="certifications" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+        <section id="certifications" className="pt-8 pb-12 xl:pt-0 xl:pb-0">
           <SectionHeading title="Certifications" subtitle="Courses & Credentials" />
           <div data-aos="fade-up">
             <Certifications />
@@ -68,7 +68,7 @@ const Home = () => {
         </section>
 
         {/* ── Contact ───────────────────────────────────────────────────── */}
-        <section id="contact" className="pt-32 pb-24 xl:pt-20 xl:pb-0">
+        <section id="contact" className="pt-12 pb-12 xl:pt-20 xl:pb-0">
           <SectionHeading title="Contact" subtitle="Get In Touch" />
           <div data-aos="fade-up" className="-mt-6 sm:-mt-8 lg:-mt-12">
             <Contact />
