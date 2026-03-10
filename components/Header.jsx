@@ -17,18 +17,18 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-200 ${
         scrolled
-          ? "bg-primary/90 backdrop-blur-xl shadow-lg shadow-black/40 border-b border-white/5 py-3 xl:py-4"
-          : "bg-primary/60 backdrop-blur-md border-b border-transparent py-4 xl:py-6"
+          ? "bg-primary/95 backdrop-blur-md shadow-lg border-b border-white/10 h-[64px]"
+          : "bg-primary/80 backdrop-blur-sm border-b border-transparent h-[96px]"
       }`}
     >
-      <div className="container mx-auto flex justify-between items-center px-4">
+      <div className="container mx-auto h-full flex justify-between items-center px-4">
         {/* Logo */}
         <Link href="/" className="group">
-          <h1 className="text-2xl md:text-4xl font-semibold tracking-tight">
+          <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white">
             Madhushani
-            <span className="text-accent group-hover:drop-shadow-[0_0_10px_#00ff99] transition-all duration-300">.</span>
+            <span className="text-accent transition-colors duration-200">.</span>
           </h1>
         </Link>
 
@@ -36,7 +36,7 @@ const Header = () => {
         <div className="hidden xl:flex items-center gap-8">
           <Nav />
           <Link href="/contact">
-            <Button className="btn-glow">
+            <Button className="btn-glow text-sm">
               Hire me
             </Button>
           </Link>

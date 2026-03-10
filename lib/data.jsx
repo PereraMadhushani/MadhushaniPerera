@@ -187,11 +187,15 @@ export const experience = {
       company: "Pra Su King Pvt Ltd.",
       position: "Intern Software Engineer",
       duration: "2025 March – 2025 September",
+      description:
+        "Contributed to the development of an ERP system using Angular, .NET, and SQL Server, gaining hands-on experience in software engineering and enterprise application development.",
     },
     {
       company: "Jaan Network (Pvt) Ltd.",
       position: "Intern Full Stack Developer",
       duration: "2025 October – Present",
+      description:
+        "Working on full-stack development projects, utilizing React, Node.js, and MongoDB to build scalable web applications while collaborating with cross-functional teams to deliver high-quality software solutions.",
     },
   ],
 };
@@ -256,6 +260,62 @@ export const about = {
     { fieldName: "Languages", fieldValue: "English, Sinhala" },
   ],
 };
+
+// ─── Certifications ──────────────────────────────────────────────────────────
+// Update this array whenever you earn a new certificate.
+// - credentialUrl: link to the certificate (Coursera, LinkedIn, etc.) — leave "" if none
+// - color: accent color class applied to the badge icon (Tailwind bg-* utility)
+
+export const certifications = [
+  {
+    title: "Responsive Web Design",
+    issuer: "freeCodeCamp",
+    date: "2023",
+    category: "Web Development",
+    credentialUrl: "https://www.freecodecamp.org/certification",
+    color: "bg-orange-500/10 text-orange-400 border-orange-500/20",
+  },
+  {
+    title: "JavaScript Algorithms and Data Structures",
+    issuer: "freeCodeCamp",
+    date: "2023",
+    category: "Programming",
+    credentialUrl: "https://www.freecodecamp.org/certification",
+    color: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+  },
+  {
+    title: "Front End Development Libraries",
+    issuer: "freeCodeCamp",
+    date: "2024",
+    category: "Frontend",
+    credentialUrl: "https://www.freecodecamp.org/certification",
+    color: "bg-blue-500/10 text-blue-400 border-blue-500/20",
+  },
+  {
+    title: "React — The Complete Guide",
+    issuer: "Udemy",
+    date: "2024",
+    category: "Frontend",
+    credentialUrl: "",
+    color: "bg-cyan-500/10 text-cyan-400 border-cyan-500/20",
+  },
+  {
+    title: "Node.js, Express, MongoDB Bootcamp",
+    issuer: "Udemy",
+    date: "2024",
+    category: "Backend",
+    credentialUrl: "",
+    color: "bg-green-500/10 text-green-400 border-green-500/20",
+  },
+  {
+    title: "Figma UI/UX Design Essentials",
+    issuer: "Udemy",
+    date: "2023",
+    category: "Design",
+    credentialUrl: "",
+    color: "bg-purple-500/10 text-purple-400 border-purple-500/20",
+  },
+];
 
 // ─── Contact Info ─────────────────────────────────────────────────────────────
 

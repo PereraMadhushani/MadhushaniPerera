@@ -15,10 +15,10 @@ const Nav = () => {
           key={index}
           className={`
             relative px-3 py-2 capitalize font-medium text-sm tracking-wide
-            transition-colors duration-300 rounded-md
+            transition-colors duration-150 rounded-md
             after:content-[''] after:absolute after:bottom-0 after:left-3 after:right-3
             after:h-[2px] after:bg-accent after:rounded-full
-            after:transition-all after:duration-300
+            after:transition-all after:duration-150
             ${
               link.path === pathname
                 ? "text-accent after:opacity-100 after:scale-x-100 bg-accent/5"

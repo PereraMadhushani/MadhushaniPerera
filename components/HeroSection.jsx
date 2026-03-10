@@ -51,51 +51,56 @@ const RevealText = ({ text, delay = 0, className = "" }) => {
 const HeroSection = () => (
   <section
     id="home"
-    className="hero-section h-full flex items-center justify-center"
+    className="hero-section min-h-[calc(100vh-96px)] flex items-center justify-center"
   >
-    {/* Animated grid + corner glows */}
+    {/* Subtle dot-grid */}
     <div className="hero-grid" aria-hidden="true" />
 
-    <div className="flex flex-col xl:flex-row items-center justify-between xl:pt-8 xl:pb-24 w-full relative z-10">
+    <div className="flex flex-col xl:flex-row items-center justify-between py-16 xl:pt-12 xl:pb-24 w-full relative z-10 gap-10 xl:gap-0">
       {/* ── Text side ─────────────────────────────────────────────── */}
-      <div className="text-center xl:text-left order-2 xl:order-none">
+      <div className="text-center xl:text-left order-2 xl:order-none max-w-xl">
         {/* Typewriter role */}
         <TypewriterText />
 
         {/* Main heading */}
-        <h1 className="h1 mb-6">
-          {/* "Hello I'm" — letter reveal at delay 2.0s (after stair transition) */}
+        <h1 className="h1 mb-5">
           <RevealText text="Hello I'm" delay={2.0} />
           <br />
-          {/* Name — gradient + slide up */}
           <motion.span
-            className="hero-name-gradient"
-            initial={{ opacity: 0, y: 28 }}
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.45, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ delay: 2.45, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            {personalInfo.fullName}
+            {(() => {
+              const parts = personalInfo.fullName.split(" ");
+              const last = parts.pop();
+              return (
+                <>
+                  <span className="text-white">{parts.join(" ")} </span>
+                  <span className="text-[#00ff99]">{last}</span>
+                </>
+              );
+            })()}
           </motion.span>
         </h1>
 
         {/* Tagline */}
         <motion.p
-          className="max-w-[500px] mb-9 text-white/80"
-          initial={{ opacity: 0, y: 16 }}
+          className="max-w-[480px] mb-8 text-white/60 text-[15px] leading-relaxed"
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.65, duration: 0.55, ease: "easeOut" }}
+          transition={{ delay: 2.6, duration: 0.5, ease: "easeOut" }}
         >
           {personalInfo.tagline}
         </motion.p>
 
         {/* CTA row */}
         <motion.div
-          className="flex flex-col xl:flex-row items-center gap-8"
-          initial={{ opacity: 0, y: 16 }}
+          className="flex flex-col sm:flex-row items-center justify-center xl:justify-start gap-5"
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.8, duration: 0.55, ease: "easeOut" }}
+          transition={{ delay: 2.75, duration: 0.5, ease: "easeOut" }}
         >
-          {/* Border-beam Download CV button */}
           <a
             href={personalInfo.cvPath}
             download
@@ -108,12 +113,10 @@ const HeroSection = () => (
             </button>
           </a>
 
-          <div className="mb-8 xl:mb-0">
-            <Socials
-              containerStyles="flex gap-6"
-              iconStyles="w-9 h-9 border border-accent rounded-full flex justify-center items-center text-accent text-base hover:bg-accent hover:text-primary hover:transition-all duration-500"
-            />
-          </div>
+          <Socials
+            containerStyles="flex gap-4"
+            iconStyles="w-9 h-9 border border-white/10 bg-white/5 rounded-full flex justify-center items-center text-white/70 text-base hover:bg-accent hover:text-primary hover:border-accent transition-all duration-150"
+          />
         </motion.div>
       </div>
 

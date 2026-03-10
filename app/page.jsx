@@ -12,14 +12,15 @@ import Services from "@/app/services/page";
 import Work from "@/app/work/page";
 import Resume from "@/app/resume/page";
 import Contact from "@/app/contact/page";
+import Certifications from "@/components/Certifications";
 
 // Reusable section heading used across the single-page layout
 const SectionHeading = ({ title, subtitle }) => (
-  <div className="text-center mb-12" data-aos="fade-up">
-    <h2 className="text-3xl font-bold text-accent uppercase tracking-wide">
+  <div className="text-center mb-16 lg:mb-20" data-aos="fade-up">
+    <h2 className="text-3xl lg:text-4xl font-bold text-accent uppercase tracking-wide">
       {title}
     </h2>
-    <p className="text-white/70 mt-2">{subtitle}</p>
+    <p className="text-white/60 mt-3 text-sm lg:text-base">{subtitle}</p>
   </div>
 );
 
@@ -57,10 +58,18 @@ const Home = () => {
           </div>
         </section>
 
+        {/* ── Certifications ────────────────────────────────────────────── */}
+        <section id="certifications" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+          <SectionHeading title="Certifications" subtitle="Courses & Credentials" />
+          <div data-aos="fade-up">
+            <Certifications />
+          </div>
+        </section>
+
         {/* ── Contact ───────────────────────────────────────────────────── */}
-        <section id="contact" className="pt-12 pb-24 xl:pt-0 xl:pb-0">
+        <section id="contact" className="pt-24 pb-24 xl:pt-0 xl:pb-0">
           <SectionHeading title="Contact" subtitle="Get In Touch" />
-          <div data-aos="zoom-in">
+          <div data-aos="fade-up">
             <Contact />
           </div>
         </section>

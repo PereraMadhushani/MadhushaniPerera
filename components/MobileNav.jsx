@@ -15,16 +15,16 @@ const MobileNav = () => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger className="flex justify-center items-center group">
-        <CiMenuFries className="text-[32px] text-accent group-hover:drop-shadow-[0_0_6px_#00ff99] transition-all duration-200" />
+        <CiMenuFries className="text-[28px] text-white/70 group-hover:text-accent transition-colors duration-150" />
       </SheetTrigger>
 
-      <SheetContent className="bg-primary/95 backdrop-blur-xl border-l border-white/10 flex flex-col p-0">
+      <SheetContent className="bg-primary border-l border-white/10 flex flex-col p-0">
         {/* Logo */}
-        <div className="pt-16 pb-8 px-8 text-center border-b border-white/10">
+        <div className="pt-14 pb-6 px-8 text-center border-b border-white/10">
           <Link href="/" onClick={() => setOpen(false)}>
-            <h1 className="text-3xl font-semibold">
+            <h1 className="text-2xl font-bold text-white">
               Madhushani
-              <span className="text-accent drop-shadow-[0_0_8px_#00ff99]">.</span>
+              <span className="text-accent">.</span>
             </h1>
           </Link>
         </div>
@@ -37,18 +37,18 @@ const MobileNav = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
-                delay: open ? index * 0.07 + 0.05 : 0,
-                duration: 0.25,
+                delay: open ? index * 0.05 + 0.03 : 0,
+                duration: 0.2,
                 ease: "easeOut",
               }}
             >
               <Link
                 href={link.path}
                 onClick={() => setOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-lg capitalize font-medium transition-all duration-200 ${
+                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-base capitalize font-medium transition-all duration-150 ${
                   link.path === pathname
                     ? "text-accent bg-accent/10 border border-accent/20"
-                    : "text-white/65 hover:text-white hover:bg-white/5"
+                    : "text-white/70 hover:text-white hover:bg-white/5"
                 }`}
               >
                 {link.path === pathname && (
@@ -63,7 +63,7 @@ const MobileNav = () => {
         {/* Hire Me CTA */}
         <div className="px-8 pb-10">
           <Link href="/contact" onClick={() => setOpen(false)} className="block">
-            <button className="w-full py-3 rounded-full bg-accent text-primary font-semibold text-sm uppercase tracking-[2px] btn-glow transition-all duration-300 hover:bg-accent-hover">
+            <button className="w-full py-3 rounded-full bg-accent text-primary font-semibold text-sm uppercase tracking-[2px] btn-glow transition-all duration-150 hover:bg-accent-hover">
               Hire Me
             </button>
           </Link>

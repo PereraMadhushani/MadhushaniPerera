@@ -16,18 +16,18 @@ const containerVariants = {
   hidden: {},
   show: {
     transition: {
-      delayChildren: 2.4,
-      staggerChildren: 0.15,
+      delayChildren: 0.1,
+      staggerChildren: 0.1,
     },
   },
 };
 
 const cardVariants = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 24 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: "easeOut" },
+    transition: { duration: 0.4, ease: "easeOut" },
   },
 };
 
@@ -37,18 +37,18 @@ const Services = () => {
       <div className="container mx-auto">
         {/* Section heading */}
         <motion.div
-          initial={{ opacity: 0, y: -16 }}
+          initial={{ opacity: 0, y: -12 }}
           animate={{
             opacity: 1,
             y: 0,
-            transition: { delay: 2.2, duration: 0.5, ease: "easeOut" },
+            transition: { delay: 0.1, duration: 0.4, ease: "easeOut" },
           }}
-          className="text-center mb-12"
+          className="text-center mb-10"
         >
           <h2 className="h2 mb-3">
             What I <span className="text-accent">Offer</span>
           </h2>
-          <p className="text-white/50 text-sm max-w-[440px] mx-auto leading-relaxed">
+          <p className="text-white/60 text-sm max-w-[440px] mx-auto leading-relaxed">
             Crafting high-quality digital experiences across web, mobile, and
             software platforms.
           </p>
@@ -59,7 +59,7 @@ const Services = () => {
           variants={containerVariants}
           initial="hidden"
           animate="show"
-          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5"
         >
           {services.map((service, index) => {
             const Icon = serviceIcons[service.num] || Code2;

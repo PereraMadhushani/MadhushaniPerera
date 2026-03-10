@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import PageTransition from "@/components/PageTransition";
 import StairTransition from "@/components/StairTransition";
 import AOSInit from "@/components/AOSInit";
+import Footer from "@/components/Footer";
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -24,7 +25,10 @@ export default function RootLayout({ children }) {
         <AOSInit />
         <Header />
         <StairTransition />
-        <PageTransition>{children}</PageTransition>
+        <main className="pt-24">
+          <PageTransition>{children}</PageTransition>
+        </main>
+        <Footer />
       </body>
     </html>
   );

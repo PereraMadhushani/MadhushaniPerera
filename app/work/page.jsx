@@ -32,7 +32,7 @@ const Work = () => {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.1, duration: 0.4, ease: "easeIn" },
       }}
       className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
     >
@@ -43,36 +43,35 @@ const Work = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={project.num}
-                initial={{ opacity: 0, x: -24 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 24 }}
-                transition={{ duration: 0.3, ease: "easeOut" }}
-                className="flex flex-col gap-[30px] h-[50%]"
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.25, ease: "easeOut" }}
+                className="flex flex-col gap-[24px] h-[50%]"
               >
               {/* Number */}
-              <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+              <div className="text-7xl leading-none font-extrabold text-transparent" style={{ WebkitTextStroke: "1px rgba(255,255,255,0.2)" }}>
                 {project.num}
               </div>
 
               {/* Category & title */}
-              <h2 className="text-[42px] font-bold leading-none text-white capitalize transition-all duration-500">
+              <h2 className="text-[36px] font-bold leading-none text-white capitalize">
                 {project.category} project
               </h2>
 
               {/* Description */}
-              <p className="text-white/60">{project.description}</p>
+              <p className="text-white/60 text-[15px]">{project.description}</p>
 
               {/* Tech stack */}
-              <ul className="flex gap-4 flex-wrap">
+              <ul className="flex gap-3 flex-wrap">
                 {project.stack.map((item, index) => (
-                  <li key={index} className="text-xl text-accent">
+                  <li key={index} className="px-3 py-1 bg-white/5 border border-white/10 text-accent text-sm font-medium rounded-full">
                     {item.name}
-                    {index !== project.stack.length - 1 && ","}
                   </li>
                 ))}
               </ul>
 
-              <div className="border border-white/20" />
+              <div className="border border-white/10" />
 
               {/* Links */}
               <div className="flex items-center gap-4">
@@ -81,8 +80,8 @@ const Work = () => {
                   <Link href={project.live} target="_blank" rel="noopener noreferrer">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        <TooltipTrigger className="w-[56px] h-[56px] rounded-full bg-[#27272c] border border-white/10 flex justify-center items-center group hover:border-accent hover:bg-accent/10 transition-all duration-150">
+                          <BsArrowUpRight className="text-white/60 text-xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>Live Project</p>
@@ -93,8 +92,8 @@ const Work = () => {
                 ) : (
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center opacity-40 cursor-not-allowed">
-                        <BsArrowUpRight className="text-white text-3xl" />
+                      <TooltipTrigger className="w-[56px] h-[56px] rounded-full bg-[#27272c] border border-white/10 flex justify-center items-center opacity-35 cursor-not-allowed">
+                        <BsArrowUpRight className="text-white/60 text-xl" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Not available</p>
@@ -108,8 +107,8 @@ const Work = () => {
                   <Link href={project.github} target="_blank" rel="noopener noreferrer">
                     <TooltipProvider delayDuration={100}>
                       <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        <TooltipTrigger className="w-[56px] h-[56px] rounded-full bg-[#27272c] border border-white/10 flex justify-center items-center group hover:border-accent hover:bg-accent/10 transition-all duration-150">
+                          <BsGithub className="text-white/60 text-xl group-hover:text-accent" />
                         </TooltipTrigger>
                         <TooltipContent>
                           <p>GitHub Repository</p>
@@ -120,8 +119,8 @@ const Work = () => {
                 ) : (
                   <TooltipProvider delayDuration={100}>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center opacity-40 cursor-not-allowed">
-                        <BsGithub className="text-white text-3xl" />
+                      <TooltipTrigger className="w-[56px] h-[56px] rounded-full bg-[#27272c] border border-white/10 flex justify-center items-center opacity-35 cursor-not-allowed">
+                        <BsGithub className="text-white/60 text-xl" />
                       </TooltipTrigger>
                       <TooltipContent>
                         <p>Not available</p>
@@ -135,19 +134,19 @@ const Work = () => {
           </div>
 
           {/* Image slider */}
-          <div className="w-full xl:w-[50%]">
+          <div className="w-full xl:w-[50%] flex flex-col">
             <Swiper
               spaceBetween={30}
               slidesPerView={1}
               modules={[EffectFade]}
               effect="fade"
-              className="xl:h-[520px] mb-12"
+              className="xl:h-[520px] flex-1"
               onSlideChange={handleSlideChange}
             >
               {projects.map((proj, index) => (
                 <SwiperSlide key={index} className="w-full">
-                  <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                    <div className="absolute inset-0 bg-black/10 z-10" />
+                  <div className="h-[300px] sm:h-[380px] xl:h-[460px] relative group flex justify-center items-center bg-[#27272c] rounded-2xl overflow-hidden border border-white/10">
+                    <div className="absolute inset-0 bg-accent/5 z-10" />
 
                     {/* Inner swiper for multiple project images */}
                     <Swiper spaceBetween={10} slidesPerView={1} className="w-full h-full">
